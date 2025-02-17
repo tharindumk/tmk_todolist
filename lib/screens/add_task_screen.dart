@@ -30,7 +30,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 controller: _descriptionController,
                 decoration: InputDecoration(labelText: "Description")),
             DropdownButton<String>(
-              value: _status,
+              value:
+                  _status, //TODO: Hard coded statuss list need to move to central location
               items: [
                 "Start",
                 "In Progress",
