@@ -8,7 +8,7 @@ class TaskProvider with ChangeNotifier {
   List<Task> get tasks => _tasks;
 
   TaskProvider() {
-    loadTasks();
+    //loadTasks();
   }
 
   Future<void> loadTasks() async {
@@ -27,7 +27,12 @@ class TaskProvider with ChangeNotifier {
   }
 
   Future<void> deleteTask(int id) async {
-    await DatabaseHelper().deleteTask(id);
-    await loadTasks();
+    if (id == -999) {
+      await loadTasks();
+      return;
+    } else {
+      await DatabaseHelper().deleteTask(id);
+      await loadTasks();
+    }
   }
 }
